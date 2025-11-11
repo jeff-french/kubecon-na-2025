@@ -1,0 +1,17 @@
+apiVersion: example.crossplane.io/v1
+kind: App
+metadata:
+  annotations:
+    terasky.backstage.io/source-info: >-
+      {"pushToGit":true,"gitBranch":"main","gitRepo":"github.com?owner=jeff-french&repo=kubecon-na-2025","gitLayout":"cluster-scoped","basePath":"demo-cluster/my-cool-ns/App"}
+    terasky.backstage.io/add-to-catalog: 'true'
+    terasky.backstage.io/owner: group:default/kubernetes-auto-ingested
+    terasky.backstage.io/system: my-cool-ns
+    terasky.backstage.io/source-file-url: >-
+      https://github.com/jeff-french/kubecon-na-2025/blob/main/demo-cluster/my-cool-ns/App/my-cool-app.yaml
+  name: my-cool-app
+  namespace: my-cool-ns
+spec:
+  image: nginx
+  crossplane:
+    compositionUpdatePolicy: Automatic
